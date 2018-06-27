@@ -37,7 +37,7 @@
 	},
 	"configurationArguments": {
 		"criteria": {
-			"OUTCOME-1": "<FilterDefinition><ConditionSet Operator=\"AND\" ConditionSetName=\"Individual Filter Grouping\"><Condition Key=\"ProductReviews_Jonathan.ProductReviewed\" Operator=\"Is\"<AttributePath RelationshipID=\"d82f3394-1679-e811-a2ca-1402ec8c9a0d\"><Value><![CDATA[true]]></Value></AttributePath></Condition></ConditionSet></FilterDefinition>",
+			"OUTCOME-1": "",
 			"OUTCOME-2": ""
 		}
 	},
