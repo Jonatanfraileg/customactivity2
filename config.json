@@ -17,7 +17,6 @@
 	"outcomes": [{
 			"key": "OUTCOME-1",
 			"next": "",
-			"arguments": {},
 			"metaData": {
 				"label": "Reviewed Product is True",
 				"criteriaDescription": "ProductReviewed is True"
@@ -26,7 +25,6 @@
 		{
 			"key": "OUTCOME-2",
 			"next": "",
-			"arguments": {},
 			"metaData": {
 				"label": "Did Not Review Product"
 			}
