@@ -6,7 +6,6 @@ define([
     'use strict';
 
     var connection = new Postmonger.Session();
-    var payload = {};
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Step 1", "key": "step1" }
     ];
@@ -31,9 +30,6 @@ define([
     }
 
     function initialize (data) {
-        if (data) {
-            payload = data;
-        }
     }
 
     function onGetTokens (tokens) {
@@ -72,30 +68,14 @@ define([
             case 'step1':
                 $('#step1').show();
                 connection.trigger('updateButton', {
-                    button: 'next',
-                    enabled: Boolean(getMessage())
-                });
-                connection.trigger('updateButton', {
-                    button: 'back',
-                    visible: false
-                });
-                break;
-            case 'step2':
-                $('#step2').show();
-                connection.trigger('updateButton', {
-                    button: 'back',
-                    visible: true
-                });
-                connection.trigger('updateButton', {
-                    button: 'next',
-                    text: 'done',
-                    visible: true
+                    button: 'done',
+                    enabled: true
                 });
                 break;
         }
     }
 
     function save() {
-    connection.trigger('updateActivity', payload);
+    connection.trigger('updateActivity');
     }
 });
