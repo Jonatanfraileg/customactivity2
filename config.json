@@ -11,57 +11,51 @@
 			"description": "A custom Journey Builder activity using workflow API v1.1 format."
 		}
 	},
-	    "key": "MULTICRITERIADECISION-1",
-            "name": "Reviewed Product",
-            "description": "",
-            "type": "MULTICRITERIADECISION",
-            "outcomes": [
-                {
-                    "key": "OUTCOME-1",
-                    "next": "WAIT-1",
-                    "arguments": {},
-                    "metaData": {
-                        "label": "Reviewed Product is True",
-                        "criteriaDescription": "ProductReviewed is True"
-                    }
-                },
-                {
-                    "key": "OUTCOME-2",
-                    "next": "WAIT-2",
-                    "arguments": {},
-                    "metaData": {
-                        "label": "Did Not Review Product"
-                    }
-                }
-            ],
-            "arguments": {
-                "filterResult": "OUTCOME-1={{Contact.FilterId.dffd7183-1d18-440b-8f57-0adfb6cc6199}},OUTCOME-2=False"
-            },
-            "configurationArguments": {
-                "criteria": {
-                    "OUTCOME-1": "<FilterDefinition><ConditionSet Operator=\"AND\" ConditionSetName=\"Individual Filter Grouping\"><Condition Key=\"ProductReviews_Jonathan.ProductReviewed\" Operator=\"Is\" UiMetaData=\"{&quot;groupToSetRelationshipId&quot;:&quot;276eeb4b-1679-e811-a2ca-1402ec8c9a0d&quot;}\"><AttributePath RelationshipID=\"d82f3394-1679-e811-a2ca-1402ec8c9a0d\"><Value><![CDATA[true]]></Value></AttributePath></Condition></ConditionSet></FilterDefinition>"
-                }
-            },
-            "metaData": {
-                "isConfigured": true
-            },
-            "schema": {
-                "arguments": {
-                    "actualChoice": {
-                        "dataType": "Number",
-                        "isNullable": false,
-                        "direction": "Out",
-                        "readOnly": false,
-                        "access": "Hidden"
-                    },
-                    "filterResult": {
-                        "dataType": "Text",
-                        "isNullable": false,
-                        "direction": "In",
-                        "readOnly": true,
-                        "access": "Hidden"
-                    }
-                }
-            }
-        }
+	"key": "MULTICRITERIADECISION-1",
+	"name": "Reviewed Product",
+	"description": "",
+	"outcomes": [{
+			"key": "OUTCOME-1",
+			"next": "WAIT-1",
+			"arguments": {},
+			"metaData": {
+				"label": "Reviewed Product is True",
+				"criteriaDescription": "ProductReviewed is True"
+			}
+		},
+		{
+			"key": "OUTCOME-2",
+			"next": "WAIT-2",
+			"arguments": {},
+			"metaData": {
+				"label": "Did Not Review Product"
+			}
+		}
+	],
+	"arguments": {
+		"filterResult": "OUTCOME-1={{Contact.FilterId.dffd7183-1d18-440b-8f57-0adfb6cc6199}},OUTCOME-2=False"
+	},
+	"configurationArguments": {
+		"criteria": {
+			"OUTCOME-1": "<FilterDefinition><ConditionSet Operator=\"AND\" ConditionSetName=\"Individual Filter Grouping\"><Condition Key=\"ProductReviews_Jonathan.ProductReviewed\" Operator=\"Is\" UiMetaData=\"{&quot;groupToSetRelationshipId&quot;:&quot;276eeb4b-1679-e811-a2ca-1402ec8c9a0d&quot;}\"><AttributePath RelationshipID=\"d82f3394-1679-e811-a2ca-1402ec8c9a0d\"><Value><![CDATA[true]]></Value></AttributePath></Condition></ConditionSet></FilterDefinition>"
+		}
+	},
+	"schema": {
+		"arguments": {
+			"actualChoice": {
+				"dataType": "Number",
+				"isNullable": false,
+				"direction": "Out",
+				"readOnly": false,
+				"access": "Hidden"
+			},
+			"filterResult": {
+				"dataType": "Text",
+				"isNullable": false,
+				"direction": "In",
+				"readOnly": true,
+				"access": "Hidden"
+			}
+		}
+	}
 }
