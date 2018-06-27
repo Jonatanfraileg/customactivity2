@@ -37,8 +37,8 @@
 	},
 	"configurationArguments": {
 		"criteria": {
-			"OUTCOME-1": "<FilterDefinition><ConditionSet Operator=\"AND\" ConditionSetName=\"Individual Filter Grouping\"><Condition Key=\"ProductReviews_Jonathan.ProductReviewed\" Operator=\"Is\" UiMetaData=\"{&quot;groupToSetRelationshipId&quot;:&quot;276eeb4b-1679-e811-a2ca-1402ec8c9a0d&quot;}\"><AttributePath RelationshipID=\"d82f3394-1679-e811-a2ca-1402ec8c9a0d\"><Value><![CDATA[true]]></Value></AttributePath></Condition></ConditionSet></FilterDefinition>"
-			"OUTCOME-2":
+			"OUTCOME-1": "<FilterDefinition><ConditionSet Operator=\"AND\" ConditionSetName=\"Individual Filter Grouping\"><Condition Key=\"ProductReviews_Jonathan.ProductReviewed\" Operator=\"Is\" UiMetaData=\"{&quot;groupToSetRelationshipId&quot;:&quot;276eeb4b-1679-e811-a2ca-1402ec8c9a0d&quot;}\"><AttributePath RelationshipID=\"d82f3394-1679-e811-a2ca-1402ec8c9a0d\"><Value><![CDATA[true]]></Value></AttributePath></Condition></ConditionSet></FilterDefinition>",
+			"OUTCOME-2": ""
 		}
 	},
 	"schema": {
