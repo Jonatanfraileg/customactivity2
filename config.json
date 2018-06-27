@@ -11,58 +11,59 @@
 			"description": "A custom Journey Builder activity using workflow API v1.1 format."
 		}
 	},
-	"arguments": {
-		"execute": {
-			"inArguments": [{
-		    "contactKey": "wasdasas",
-                    "phone": "dsadasdas"					
-			}],
-				"outArguments": [],
-		"url": "https://telegramserver.herokuapp.com/",
-		"verb": "POST",
-		 "useJwt": false
-		}
-	},
-	"configurationArguments": {
-		"save": {
-			"url": "https://telegramserver.herokuapp.com/",
-			"verb": "POST"
-		},
-		"publish": {
-			"url": "https://telegramserver.herokuapp.com/",
-			"verb": "POST"
-		},
-		"validate": {
-			"url": "https://telegramserver.herokuapp.com/",
-			"verb": "POST"
-		},
-		"stop": {
-			"url": "https://telegramserver.herokuapp.com/",
-			"verb": "POST"
-		}
-	},
-	"wizardSteps": [{
-			"label": "Step 1",
-			"key": "step1"
-		},
-		{
-			"label": "Step 2",
-			"key": "step2"
-		}
-	],
-	"userInterfaces": {
-		"configModal": {
-			"height": 200,
-			"width": 300,
-			"fullscreen": true
-		}
-	},
-	"schema": {
-		"arguments": {
-			"execute": {
-				"inArguments": [],
-				"outArguments": []
-			}
-		}
-	}
+	{
+            "key": "MULTICRITERIADECISION-4",
+            "name": "Reviewed Product",
+            "description": "",
+            "type": "MULTICRITERIADECISION",
+            "outcomes": [
+                {
+                    "key": "OUTCOME-8",
+                    "next": "WAIT-21",
+                    "arguments": {},
+                    "metaData": {
+                        "label": "Reviewed Product is True",
+                        "criteriaDescription": "ProductReviewed is True"
+                    }
+                },
+                {
+                    "key": "OUTCOME-9",
+                    "next": "UPDATECONTACTDATA-4",
+                    "arguments": {},
+                    "metaData": {
+                        "label": "Did Not Review Product"
+                    }
+                }
+            ],
+            "arguments": {
+                "filterResult": "OUTCOME-8={{Contact.FilterId.dffd7183-1d18-440b-8f57-0adfb6cc6199}},OUTCOME-9=False"
+            },
+            "configurationArguments": {
+                "schemaVersionId": 108,
+                "criteria": {
+                    "OUTCOME-8": "<FilterDefinition><ConditionSet Operator=\"AND\" ConditionSetName=\"Individual Filter Grouping\"><Condition Key=\"ProductReviews_Jonathan.ProductReviewed\" Operator=\"Is\" UiMetaData=\"{&quot;groupToSetRelationshipId&quot;:&quot;276eeb4b-1679-e811-a2ca-1402ec8c9a0d&quot;}\"><AttributePath RelationshipID=\"d82f3394-1679-e811-a2ca-1402ec8c9a0d\"><Value><![CDATA[true]]></Value></AttributePath></Condition></ConditionSet></FilterDefinition>"
+                }
+            },
+            "metaData": {
+                "isConfigured": true
+            },
+            "schema": {
+                "arguments": {
+                    "actualChoice": {
+                        "dataType": "Number",
+                        "isNullable": false,
+                        "direction": "Out",
+                        "readOnly": false,
+                        "access": "Hidden"
+                    },
+                    "filterResult": {
+                        "dataType": "Text",
+                        "isNullable": false,
+                        "direction": "In",
+                        "readOnly": true,
+                        "access": "Hidden"
+                    }
+                }
+            }
+        }
 }
