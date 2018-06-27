@@ -47,6 +47,7 @@ define([
     }
 
     function onClickedNext () {
+    save();
     }
 
     function onClickedBack () {
@@ -95,5 +96,6 @@ define([
     }
 
     function save() {
+    connection.trigger('updateActivity', payload);
     }
 });
