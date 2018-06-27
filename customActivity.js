@@ -8,8 +8,7 @@ define([
     var connection = new Postmonger.Session();
     var payload = {};
     var steps = [ // initialize to the same value as what's set in config.json for consistency
-        { "label": "Step 1", "key": "step1" },
-        { "label": "Step 2", "key": "step2" }
+        { "label": "Step 1", "key": "step1" }
     ];
     var currentStep = steps[0].key;
 
@@ -28,42 +27,12 @@ define([
         connection.trigger('ready');
 
         connection.trigger('requestTokens');
-        connection.trigger('requestEndpoints');
-        connection.trigger('updateButton', { button: 'next', enabled: 'true' });
-       
+        connection.trigger('requestEndpoints');  
     }
 
     function initialize (data) {
         if (data) {
             payload = data;
-        }
-
-        var message;
-        var hasInArguments = Boolean(
-            payload['arguments'] &&
-            payload['arguments'].execute &&
-            payload['arguments'].execute.inArguments &&
-            payload['arguments'].execute.inArguments.length > 0
-        );
-
-        var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
-
-        $.each(inArguments, function(index, inArgument) {
-            $.each(inArgument, function(key, val) {
-                if (key === 'message') {
-                    message = val;
-                }
-            });
-        });
-
-        // If there is no message selected, disable the next button
-        if (!message) {
-            showStep(null, 1);
-            // If there is a message, skip to the summary step
-        } else {
-            $('#message').html(message);
-            connection.trigger('nextStep');
-            showStep(null, 2);
         }
     }
 
@@ -78,15 +47,6 @@ define([
     }
 
     function onClickedNext () {
-        if (
-            (currentStep.key === 'step2') 
-        ) {
-            save();
-        } else {
-            var message = getMessage();
-            $('#message').html(message);
-            connection.trigger('nextStep');
-        }
     }
 
     function onClickedBack () {
@@ -135,24 +95,5 @@ define([
     }
 
     function save() {
-        
-        var value = getMessage();
-        console.log('ciao='+ value);
-        // 'payload' is initialized on 'initActivity' above.
-        // Journey Builder sends an initial payload with defaults
-        // set by this activity's config.json file.  Any property
-        // may be overridden as desired.
-
-        payload['arguments'].execute.inArguments = [{ "message": value }];
-
-        payload['metaData'].isConfigured = true;
-
-        connection.trigger('updateActivity', payload);
     }
-
-    function getMessage() {
-        return  $('#select1').val();
-
-    }
-
 });
